@@ -1,12 +1,13 @@
 @Library('shared-library') import com.utils.*
+
 pipeline {
 
     agent any
-/*
+
 	tools {
         maven "maven3"
     }
-*/
+
     environment {
         registry = "imranvisualpath/vproappdock"
         registryCredential = 'dockerhub'
