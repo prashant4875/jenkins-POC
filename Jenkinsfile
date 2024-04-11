@@ -38,9 +38,9 @@ pipeline {
                 script{
                    // Instantiate DockerUtils class
                     def dockerUtils = new DockerUtils(this)
-                    def buildNumber = env.BUILD_NUMBER
+                    // def buildNumber = env.BUILD_NUMBER
                     // Call the buildAndPushImage method with credentialsId and toolName
-                    dockerUtils.buildAndPushImage('docker', 'docker', buildNumber)
+                    dockerUtils.buildAndPushImage('docker', 'docker', env.BUILD_NUMBER)
                 }
             }
         }
@@ -58,7 +58,8 @@ pipeline {
                     namespace: '',
                     restrictKubeConfigAccess: false,
                     serverUrl: '',
-                    manifestFilePath: 'k8s/devops.yaml'
+                    manifestFilePath: 'k8s/devops.yaml',
+                    buildNumber: env.BUILD_NUMBER
                 ])
             } 
           }
