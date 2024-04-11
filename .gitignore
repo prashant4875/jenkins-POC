@@ -1,6 +1,6 @@
 .git
 .settings
-target/
 *.war
+/target
 *.ini
 *.cnf
