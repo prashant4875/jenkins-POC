@@ -1,4 +1,5 @@
-@Library('shared-library') import com.utils.*
+@Library('shared-library') _
+import com.utils.*
 
 pipeline {
 
@@ -15,14 +16,13 @@ pipeline {
 
     stages{
 
-        // stage('Git checkout'){
-        //     steps{
-        //         script{
-        //             def gitCheckout = new GitCheckout()
-        //             gitCheckout.checkout(branch: 'master', credentialsId: 'github', url: 'https://github.com/prashant4875/jenkins-POC.git')
-        //         }
-        //     }
-        // }
+        stage('Git checkout'){
+            steps{
+                script{
+                    gitCheckout()
+                }
+            }
+        }
 
         stage('BUILD'){
             steps{
