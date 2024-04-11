@@ -49,18 +49,21 @@ pipeline {
         stage('Kubernetes Deploy') {
           steps {
             script{
-                def kube = new Kubernetes(this)
-                kube.kubernetesDeploy([
-                    caCertificate: '',
-                    clusterName: '',
-                    contextName: '',
-                    credentialsId: 'kube',
-                    namespace: '',
-                    restrictKubeConfigAccess: false,
-                    serverUrl: '',
-                    manifestFilePath: 'k8s/devops.yaml',
-                    buildNumber: env.BUILD_NUMBER
-                ])
+                // def kube = new Kubernetes(this)
+                // kube.kubernetesDeploy([
+                //     caCertificate: '',
+                //     clusterName: '',
+                //     contextName: '',
+                //     credentialsId: 'kube',
+                //     namespace: '',
+                //     restrictKubeConfigAccess: false,
+                //     serverUrl: '',
+                //     manifestFilePath: 'k8s/devops.yaml',
+                //     buildNumber: env.BUILD_NUMBER
+                // ])
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'kube', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                    sh 'kubectl apply -f k8s/devops.yaml'
+                }
             } 
           }
         }
