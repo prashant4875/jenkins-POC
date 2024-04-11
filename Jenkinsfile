@@ -19,7 +19,7 @@ pipeline {
             steps{
                 script{
                     def gitCheckout = new GitCheckout()
-                    gitCheckout.checkout(branch: 'master', credentialsId: 'patDemoToken1', url: 'your-repo-url')
+                    gitCheckout.checkout(branch: 'master', credentialsId: 'github', url: 'https://github.com/prashant4875/jenkins-POC.git')
                 }
             }
         }
