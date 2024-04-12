@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: devopsweb
-          image: prashant4875/devopsweb:latest
+          image: prashant4875/devopsweb:v9
           ports:
             - containerPort: 8080 # Use port 8080
 ---
