@@ -54,7 +54,7 @@ pipeline {
                     caCertificate: '',
                     clusterName: '',
                     contextName: '',
-                    credentialsId: 'kube',
+                    credentialsId: 'kube8',
                     namespace: '',
                     restrictKubeConfigAccess: false,
                     serverUrl: '',
